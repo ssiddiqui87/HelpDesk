@@ -1,10 +1,10 @@
-﻿import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Favorite, JoinedItem } from './interfaces/favorite';
 
 @Injectable()
 export class FavoriteDataService {
-  userid: number;
+  userID: number;
     constructor(private http: HttpClient) {
       this.userID = Math.floor(Math.random() * 1000000) + 1;
     }
@@ -17,8 +17,9 @@ export class FavoriteDataService {
 
   postFavorite(id: number) {
     let item: Favorite = {
+      id: 0,
       ticketid: id,
-      userid: this.userid
+      userid: this.userID
     };
 
     return this.http.post<Favorite>('/api/favorite', item);
