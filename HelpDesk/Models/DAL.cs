@@ -47,6 +47,14 @@ namespace HelpDesk.Models
             return result;
         }
 
+        public int AddTicket(Ticket t)
+        {
+            string queryString = "INSERT INTO Tickets (UserID, Title, Category, TicketDetail, OpenedBy, TicketStatus) VALUES(@UserID, @Title, @Category, @TicketDetail, @OpenedBy, @TicketStatus)";
+            
+            return conn.Execute(queryString, t);
+
+        }
+
         internal IEnumerable<Ticket> GetByCategory(string cat)
         {
             string command = "SELECT * FROM Tickets WHERE Category=@category";
@@ -57,6 +65,19 @@ namespace HelpDesk.Models
             conn.Close();
 
             return result;
+        }
+
+        internal int UpdateTicket(Ticket t)
+        {
+            
+            string command = "UPDATE Tickets SET TicketStatus='1', Resolution=@resolution, ";
+            command += "ResolvedBy=@resolvedBy WHERE TicketID=@ticketID";
+            return conn.Execute(command, new
+            {
+                resolution = t.Resolution,
+                ticketID = t.TicketID,
+                resolvedBy = t.ResolvedBy
+            }) ;
         }
 
         // ********************** Favorites ***************************

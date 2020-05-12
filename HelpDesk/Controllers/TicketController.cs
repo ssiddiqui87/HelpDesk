@@ -46,16 +46,28 @@ namespace HelpDesk.Controllers
         //Add new ticket
         // POST: api/Ticket
         [HttpPost]
-        public void Post([FromBody] string value)
+        public Object NewTicket(Ticket t)
         {
+            int result = dal.AddTicket(t);
+            return new
+            {
+                result = result,
+                success = result == 1 ? true : false
+            };
         }
 
-        ////Edit/close ticket
-        //// PUT: api/Ticket/5
-        //[HttpPut("{id}")]
-        //public void Put(int id, [FromBody] string value)
-        //{
-        //}
+        //Edit/close ticket
+        // PUT: api/Ticket/5
+        [HttpPut("{id}")]
+        public Object UpdateTicket(Ticket t)
+        {
+            int result = dal.UpdateTicket(t);
+            return new
+            {
+                result = result,
+                success = result == 1 ? true : false
+            };
+        }
 
         ////Get categories
         //getCategories: Just returns the category names (DISTINCT)
@@ -76,20 +88,5 @@ namespace HelpDesk.Controllers
         }
 
 
-
-
-
-
-
-
-
-
-
-
-        //// DELETE: api/ApiWithActions/5
-        //[HttpDelete("{id}")]
-        //public void Delete(int id)
-        //{
-        //}
     }
 }
