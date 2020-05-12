@@ -1,0 +1,34 @@
+Use master
+GO
+
+DROP DATABASE  HelpDesk;
+    GO
+
+CREATE DATABASE HelpDesk;
+GO
+USE HelpDesk;
+GO
+CREATE TABLE Tickets (
+	TicketID int NOT NULL PRIMARY KEY IDENTITY(1000,1),
+    UserID int NOT NULL,
+	Title varchar (45) NOT NULL,
+	Category varchar (25) NOT NULL,
+	TicketDetail varchar (255) NOT NULL,
+	OpenedBy varchar (50) NOT NULL,
+    TicketStatus BIT NOT NULL,
+    Resolution varchar (280),
+    ResolvedBy varchar (50) 
+);
+GO
+INSERT INTO Tickets ( UserID, Title, Category, TicketDetail, OpenedBy, TicketStatus, Resolution, ResolvedBy)
+VALUES 
+( 1, 'Help me please', 'BSoD', 'Everything is broken', 'newb', 0, null, null),
+( 2, 'Fan noise', 'Hardware', 'My fan is making noise', 'jbarron', 1, 'fan replaced', 'tbarron');
+
+GO
+CREATE TABLE Favorites (
+	ID int NOT NULL PRIMARY KEY IDENTITY(1,1),
+	UserID int NOT NULL,
+	TicketID int NOT NULL,
+)
+GO
