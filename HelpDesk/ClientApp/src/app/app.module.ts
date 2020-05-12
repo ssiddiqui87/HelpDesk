@@ -6,29 +6,31 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
+import { FavoritesComponent } from './favorites/favorites.component';
+import { TicketsComponent } from './tickets/tickets.component';
+import { TicketDetailComponent } from './ticket-detail/ticket-detail.component';
+import { TicketDataService } from './ticket-data.service';
+import { FavoriteDataService } from './favorite-data.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
-    HomeComponent,
-    CounterComponent,
-    FetchDataComponent
+    FavoritesComponent,
+    TicketDetailComponent,
+    TicketsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
+      //{ path: '', component: HomeComponent, pathMatch: 'full' },
+      //{ path: 'counter', component: CounterComponent },
+      //{ path: 'fetch-data', component: FetchDataComponent },
     ])
   ],
-  providers: [],
+  providers: [TicketDataService, FavoriteDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
