@@ -6,13 +6,14 @@ import { Favorite, JoinedItem } from './interfaces/favorite';
 export class FavoriteDataService {
   userID: number;
   constructor(private http: HttpClient) {
-    this.userID = Math.floor(Math.random() * 1000000) + 1;
+    //this.userID = Math.floor(Math.random() * 1000000) + 1;
+    this.userID = 1;
   }
   getFavorites() {
-    return this.http.get<JoinedItem[]>('/api/cart/' + this.userID);
+    return this.http.get<JoinedItem[]>('/api/favorites/');
   }
   deleteFavorite(ticketid: number) {
-    return this.http.delete('/api/favorite/' + ticketid);
+    return this.http.delete('/api/favorites/' + ticketid);
   }
 
   postFavorite(id: number) {
@@ -22,8 +23,6 @@ export class FavoriteDataService {
       userid: this.userID
     };
 
-
-    return this.http.post<Favorite>('/api/favorite', item);
-
+    return this.http.post<Favorite>('/api/favorites', item);
   }
 }
