@@ -17,11 +17,13 @@ export class FavoriteDataService {
 
   postFavorite(id: number) {
     let item: Favorite = {
+      id: 0,
       ticketid: id,
       userid: this.userID
     };
 
-    return this.http.post<CartItem>('/api/favorite', item);
+
+    return this.http.post<Favorite>('/api/favorite', item);
 
   }
 }
