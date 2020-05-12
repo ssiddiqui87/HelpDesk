@@ -1,4 +1,6 @@
-﻿import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Ticket } from '../interfaces/ticket';
+import { TicketDataService } from '../ticket-data.service';
 
 @Component({
     selector: 'app-tickets',
@@ -7,8 +9,12 @@
 })
 /** tickets component*/
 export class TicketsComponent {
-    /** tickets ctor */
-    constructor() {
+  @Input() myTicket: Ticket;
 
-    }
+  constructor(private ticketService: TicketDataService) { }
+
+  ngOnInIt(): void {
+
+  }
+
 }
