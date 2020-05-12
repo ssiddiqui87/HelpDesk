@@ -8,6 +8,8 @@ export class TicketDataService {
 
     }
   getTickets() {
-    return this.http.get<Ticket[]>('/api/ticket');
+    let result = this.http.get<Ticket[]>('/api/ticket');
+    //console.log(result);
+    return result;
   }
 }

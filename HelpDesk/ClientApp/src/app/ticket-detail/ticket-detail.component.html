@@ -1,6 +1,15 @@
-<h2>Tickets</h2>
-<div *ngFor="let t of tickets">
+<div>
+  <hr />
+  <h2>{{myTicket.title}}</h2>
+  <h4>{{myTicket.openedby}}</h4><br />
 
-  <app-tickets [myTicket]="t"></app-tickets>
+  <div>{{myTicket.category}}--{{myTicket.ticketstatus}}</div>
+  <h4> {{myTicket.ticketdetail}}</h4>
 
+
+  <div>
+    {{myTicket.resolution}}
+    {{myTicket.resolvedby}}
+  </div>
+  <hr />
 </div>

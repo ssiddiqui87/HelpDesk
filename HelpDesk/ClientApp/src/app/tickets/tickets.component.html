@@ -1,12 +1,13 @@
-<div>
-  <h2>{{myTicket.title}}</h2>
-   <h4>{{myTicket.openedby}}</h4><br />
-  <hr />
-  <div>{{myTicket.category}}--{{myTicket.ticketstatus}}</div>
-  <h4> {{myTicket.ticketdetail}}</h4>
-  <hr />
-  <div>
-    {{myTicket.resolution}}
-    {{myTicket.resolvedby}}
+<h2>Tickets</h2>
+<!--<div *ngFor="let t of tickets">
+
+  <app-ticket-detail [myTicket]="t"></app-ticket-detail>
+
+</div>-->
+<ng-container *ngIf="tickets">
+  <div *ngFor="let t of tickets">
+
+    <app-ticket-detail [myTicket]="t"></app-ticket-detail>
+
   </div>
-</div>
+</ng-container>

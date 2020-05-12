@@ -9,12 +9,17 @@ import { TicketDataService } from '../ticket-data.service';
 })
 /** tickets component*/
 export class TicketsComponent {
-  @Input() myTicket: Ticket;
+  tickets: Ticket[];
 
   constructor(private ticketService: TicketDataService) { }
 
-  ngOnInIt(): void {
-
+   ngOnInit(): void {
+    this.ticketService.getTickets().subscribe(
+      (data: Ticket[]) => {
+        this.tickets = data;
+      },
+      error => console.error(error)
+    );
   }
 
 }
