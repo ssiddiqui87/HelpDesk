@@ -26,6 +26,39 @@ namespace HelpDesk.Models
         
         }
 
+        internal Ticket GetTicket(int id)
+        {
+            string command = "SELECT * FROM Tickets WHERE ID=@id";
+
+            Ticket result = conn.QueryFirst<Ticket>(command, new { id = id });
+
+            conn.Close();
+            return result;
+        }
+
+        internal IEnumerable<string> GetCategories()
+        {
+            string command = "SELECT DISTINCT Category FROM Tickets";
+
+            IEnumerable<string> result = conn.Query<string>(command);
+
+            conn.Close();
+
+            return result;
+        }
+
+        internal IEnumerable<Ticket> GetByCategory(string cat)
+        {
+            string command = "SELECT * FROM Tickets WHERE Category=@category";
+
+            IEnumerable<Ticket> result = conn.Query<Ticket>(command,
+                new { category = cat });
+
+            conn.Close();
+
+            return result;
+        }
+
         // ********************** Favorites ***************************
         public IEnumerable<Favorite> GetAllFavorites()
         {
@@ -42,10 +75,14 @@ namespace HelpDesk.Models
             return result;
         }
 
+        
+
         public int DeleteFavoriteByID(int id)
         {
             string delete = "DELETE FROM Favorites WHERE ID = @id";
             return conn.Execute(delete, new { id = id });
         }
+
+        
     }
 }

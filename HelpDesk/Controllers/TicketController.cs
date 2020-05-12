@@ -36,18 +36,19 @@ namespace HelpDesk.Controllers
 
         ////Ticket by ID
         //// GET: api/Ticket/5
-        //[HttpGet("{id}", Name = "Get")]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
+        [HttpGet("{id}")]
+        public Ticket GetTicket(int id)
+        {
+            Ticket result = dal.GetTicket(id);
+            return result;
+        }
 
-        ////Add new ticket
-        //// POST: api/Ticket
-        //[HttpPost]
-        //public void Post([FromBody] string value)
-        //{
-        //}
+        //Add new ticket
+        // POST: api/Ticket
+        [HttpPost]
+        public void Post([FromBody] string value)
+        {
+        }
 
         ////Edit/close ticket
         //// PUT: api/Ticket/5
@@ -57,9 +58,22 @@ namespace HelpDesk.Controllers
         //}
 
         ////Get categories
+        //getCategories: Just returns the category names (DISTINCT)
+        [HttpGet("categories")] // /api/menu/categories
+        public IEnumerable<string> GetCategories()
+        {
 
+            IEnumerable<string> result = dal.GetCategories();
+            return result;
+        }
         ////Get tickets by category
+        [HttpGet("categories/{cat}")] //  /api/menu/categories/entrees
+        public IEnumerable<Ticket> GetByCategory(string cat)
+        {
 
+            IEnumerable<Ticket> result = dal.GetByCategory(cat);
+            return result;
+        }
 
 
 
