@@ -25,9 +25,9 @@ import { FavoriteDataService } from './favorite-data.service';
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      //{ path: '', component: HomeComponent, pathMatch: 'full' },
-      //{ path: 'counter', component: CounterComponent },
-      //{ path: 'fetch-data', component: FetchDataComponent },
+      { path: '', component: TicketsComponent, pathMatch: 'full' },
+      { path: 'tickets', component: TicketsComponent },
+      { path: 'favorites', component: FavoritesComponent },
     ])
   ],
   providers: [TicketDataService, FavoriteDataService],
