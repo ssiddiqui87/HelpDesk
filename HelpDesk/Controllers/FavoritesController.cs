@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HelpDesk.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 
 namespace HelpDesk.Controllers
 {
@@ -11,40 +13,40 @@ namespace HelpDesk.Controllers
     [ApiController]
     public class FavoritesController : ControllerBase
     {
-        //this is Tom's Comment
-        //// All favorites
-        //// GET: api/Favorites
-        //[HttpGet]
-        //public IEnumerable<string> Get()
-        //{
-        //    return new string[] { "value1", "value2" };
-        //}
+        IConfiguration ConfigRoot;
+        DAL dal;
 
-            //get all this user's favorites
-        // GET: api/Favorites/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        public FavoritesController(IConfiguration config)
         {
-            return "value";
+            ConfigRoot = config;
+            dal = new DAL(ConfigRoot.GetConnectionString("default"));
+        }
+
+        //Get all favorites
+        [HttpGet] 
+        public IEnumerable<Favorite> GetAllFavorites()
+        {
+            IEnumerable<Favorite> result = dal.GetAllFavorites();
+
+            return result;
         }
 
         //Add to favorites
         // POST: api/Favorites
         [HttpPost]
-        public void Post([FromBody] string value)
+        public int AddToFavorites(Favorite f)
         {
+            int result = dal.AddToFavorites(f);
+            return result;
         }
 
-        //// PUT: api/Favorites/5
-        //[HttpPut("{id}")]
-        //public void Put(int id, [FromBody] string value)
-        //{
-        //}
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public int DeleteFavoriteById(int id)
         {
+            int result = dal.DeleteFavoriteByID(id);
+            return result;
         }
     }
 }
