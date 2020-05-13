@@ -28,7 +28,7 @@ namespace HelpDesk.Models
 
         internal Ticket GetTicket(int id)
         {
-            string command = "SELECT * FROM Tickets WHERE ID=@id";
+            string command = "SELECT * FROM Tickets WHERE TicketID=@id";
 
             Ticket result = conn.QueryFirst<Ticket>(command, new { id = id });
 
