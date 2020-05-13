@@ -35,4 +35,8 @@ export class TicketsComponent {
     this.ticketSection[section] = false;
   }
 
+  addFavorite(id: number) {
+    this.ticketService.postFavorite(id).subscribe(
+      (data: object) => console.log(data), error => console.error(error));
+  }
 }

@@ -39,7 +39,21 @@ namespace HelpDesk.Controllers
             int result = dal.AddToFavorites(f);
             return result;
         }
+        //[HttpPost]
+        //public Object AddToFavorites(Favorite f)
+        //{
+        //    return dal.AllFavorites(f.UserID);
 
+        //    //int result = 0;
+
+        //    //foreach (JoinedItem fav in faves)
+        //    //{
+        //    //    if (fav.TicketID == f.TicketID)
+        //    //    {
+        //    //        result
+        //    //    }
+        //    //}
+        //}
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]

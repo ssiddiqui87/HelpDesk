@@ -19,8 +19,8 @@ export class FavoriteDataService {
   postFavorite(id: number) {
     let item: Favorite = {
       id: 0,
-      ticketid: id,
-      userid: this.userID
+      ticketID: id,
+      userID: this.userID
     };
 
     return this.http.post<Favorite>('/api/favorites', item);

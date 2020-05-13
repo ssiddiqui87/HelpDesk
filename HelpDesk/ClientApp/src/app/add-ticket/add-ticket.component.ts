@@ -22,15 +22,15 @@ export class AddTicketComponent implements OnInit {
 
  addTicket() {
    this.ticketData.addNewTicket({
-     ticketid: 0,
-     userid: this.ticketData.userID,
+     ticketID: 0,
+     userID: this.ticketData.userID,
      title: this.title,
      category: this.category,
-     ticketdetail: this.details,
-     openedby: this.openedBy,
-     ticketstatus: false,
+     ticketDetail: this.details,
+     openedBy: this.openedBy,
+     ticketStatus: false,
      resolution: null,
-     resolvedby: null
+     resolvedBy: null
    }).subscribe(
      (data: object) => console.log(data), error => console.error(error));
   }

@@ -19,20 +19,20 @@ export class EditTicketComponent implements OnInit {
   ngOnInit() {
   }
 
-  editTicket(ticketid: number, resolution: string, resolvedby: string) {
-    let ticket: Ticket = {
-      ticketid: 0,
-      userid: this.ticketData.userID,
-      title: this.item.title,
-      category: this.item.category,
-      ticketdetail: this.item.ticketdetail,
-      openedby: this.item.openedby,
-      ticketstatus: true,
-      resolution: resolution,
-      resolvedby: resolvedby
-    }
+  //editTicket(ticketid: number, resolution: string, resolvedby: string) {
+  //  let ticket: Ticket = {
+  //    ticketID: 0,
+  //    userID: this.ticketData.userID,
+  //    title: this.item.title,
+  //    category: this.item.category,
+  //    ticketDetail: this.item.ticketdetail,
+  //    openedBy: this.item.openedby,
+  //    ticketStatus: true,
+  //    resolution: resolution,
+  //    resolvedBy: resolvedby
+//  //  }
 
-    this.updateEmitter.emit(ticket);
-  }
+//    this.updateEmitter.emit(ticket);
+//  }
 
 }

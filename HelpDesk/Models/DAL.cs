@@ -104,6 +104,20 @@ namespace HelpDesk.Models
             return conn.Execute(delete, new { id = id });
         }
 
+
+        public IEnumerable<JoinedItem> AllFavorites(int id)
+        {
+            string command = "SELECT f.TicketID, f.UserID, t.Title FROM ";
+            command += "Favorites f INNER JOIN Tickets t ON f.TicketID = t.TicketID WHERE t.UserID=@id";
+
+            IEnumerable<JoinedItem> result = conn.Query<JoinedItem>(command,
+                new { id = id });
+
+            conn.Close();
+
+            return result;
+
+        }
         
     }
 }

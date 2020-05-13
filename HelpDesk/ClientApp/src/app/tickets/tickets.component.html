@@ -12,8 +12,8 @@
         <div class="card card-body">
           <div >
             <h4 class="buttonSpace">{{t.title}}</h4>
-            <button class="btn btn-primary buttonSpace" type="button" (click)="postFavorite()">Add to Favorites</button>
-            <button class="btn btn-primary buttonSpace" type="button" (click)="postFavorite()">Edit Ticket</button>
+            <button class="btn btn-primary buttonSpace" type="button" (click)="addFavorite(t.ticketID)">Add to Favorites</button>
+            
           </div>
           <app-ticket-detail [myTicket]="t"></app-ticket-detail>
         </div>
