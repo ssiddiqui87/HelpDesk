@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Ticket } from './interfaces/ticket';
+import { Favorite } from './interfaces/favorite';
 
 @Injectable()
 export class TicketDataService {
@@ -18,5 +19,15 @@ export class TicketDataService {
   addNewTicket(t: Ticket) {
     console.log('submitting ticket' + t.title);
     return this.http.post<Ticket>('/api/ticket', t);
+  }
+
+  postFavorite(id: number) {
+    let item: Favorite = {
+      id: 0,
+      ticketid: id,
+      userid: this.userID
+    };
+
+    return this.http.post<Favorite>('/api/favorites', item);
   }
 }
