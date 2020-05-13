@@ -35,7 +35,7 @@ export class FavoritesComponent {
   getFavorites() {
     this.favoriteData.getFavorites().subscribe(
       (data: any) => {
-        this.favoriteData = data;        
+        this.favorites = data;        
       },
       error => console.error(error)
     );

@@ -1,8 +1,28 @@
-<div>
+<div class="container">
   <hr />
   <h2>{{myTicket.title}}</h2>
-  <h4>{{myTicket.openedby}}</h4><br />
+  
+  <div class="container">
+    Username: {{myTicket.openedby}}<br />
+    Category: {{myTicket.category}}--{{myTicket.ticketstatus}}
+  </div>
+  <p> {{myTicket.ticketdetail}}</p>
 
+
+  <!--ngIF may work here is there's a resolution-->
+  <div>
+    Resolution:<br />
+    {{myTicket.resolution}}
+    {{myTicket.resolvedby}}
+  </div>
+  
+</div>
+
+<!--<button class="accordion">
+  <h2>{{myTicket.title}}</h2>
+  <h4>{{myTicket.openedby}}</h4>
+</button>
+<div class="panel">
   <div>{{myTicket.category}}--{{myTicket.ticketstatus}}</div>
   <h4> {{myTicket.ticketdetail}}</h4>
 
@@ -11,5 +31,4 @@
     {{myTicket.resolution}}
     {{myTicket.resolvedby}}
   </div>
-  <hr />
-</div>
+</div>-->
