@@ -1,34 +1,19 @@
 <div class="container">
   <hr />
-  <h2>{{myTicket.title}}</h2>
 
-  
   <div class="container">
     Username: {{myTicket.openedBy}}<br />
     Category: {{myTicket.category}}--{{myTicket.ticketStatus}}
-  </div>
-  <p> {{myTicket.ticketDetail}}</p>
+
+    <p> {{myTicket.ticketDetail}}</p>
 
 
-  <!--ngIF may work here is there's a resolution-->
-  <div>
-    Resolution:<br />
-    {{myTicket.resolution}}
-    {{myTicket.resolvedby}}
+    <!--ngIF may work here is there's a resolution-->
+    <div>
+      Resolution:<br />
+      {{myTicket.resolution}}
+      {{myTicket.resolvedBy}}
+    </div>
+
   </div>
-  
 </div>
-
-<!--<button class="accordion">
-  <h2>{{myTicket.title}}</h2>
-  <h4>{{myTicket.openedby}}</h4>
-</button>
-<div class="panel">
-  <div>{{myTicket.category}}--{{myTicket.ticketstatus}}</div>
-  <h4> {{myTicket.ticketdetail}}</h4>
-
-  <div>
-    {{myTicket.resolution}}
-    {{myTicket.resolvedBy}}
-  </div>
-</div>-->

@@ -1,10 +1,19 @@
+<div class="container">
+  <h2 class="heading">Tickets</h2>
 
-<h2 class="heading">Tickets</h2>
-
-<ng-container *ngIf="tickets">
-  <div *ngFor="let t of tickets">
-
-    <app-ticket-detail [myTicket]="t"></app-ticket-detail>
-
+  <p>
+    <ng-container *ngFor="let t of tickets; index as i">
+      <button class="btn btn-primary" type="button" (click)="showFullTickets(i)">{{t.title}}</button>
+    </ng-container>
+  </p>
+  <div class="row">
+    <ng-container *ngFor="let t of tickets; index as i">
+      <div class="col" [hidden]="ticketSection[i]" id="menuCollapse{{i}}">
+        <div class="card card-body">
+          <h3>{{t.title}}</h3>
+          <app-ticket-detail [myTicket]="t"></app-ticket-detail>
+        </div>
+      </div>
+    </ng-container>
   </div>
-</ng-container>
+</div>
