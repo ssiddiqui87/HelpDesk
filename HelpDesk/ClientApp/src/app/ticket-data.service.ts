@@ -21,6 +21,7 @@ export class TicketDataService {
     return this.http.post<Ticket>('/api/ticket', t);
   }
 
+
   updateTicket(t: Ticket) {
     console.log('updating ticket ' + t.title);
     return this.http.put<Ticket>('/api/ticket', t);
@@ -32,6 +33,7 @@ export class TicketDataService {
       userID: this.userID,
       ticketID: id,
       
+
     };
 
     return this.http.post<Favorite>('/api/favorites', item);
