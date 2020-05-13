@@ -12,4 +12,8 @@ export class TicketDataService {
     //console.log(result);
     return result;
   }
+
+  addNewTicket(t: Ticket) {
+    return this.http.post<Ticket>('/api/ticket', t);
+  }
 }
