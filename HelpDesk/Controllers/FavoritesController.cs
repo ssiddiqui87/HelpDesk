@@ -23,10 +23,10 @@ namespace HelpDesk.Controllers
         }
 
         //Get all favorites
-        [HttpGet] 
-        public IEnumerable<Favorite> GetAllFavorites()
+        [HttpGet("{id}")] 
+        public IEnumerable<JoinedItem> GetAllFavorites(int id)
         {
-            IEnumerable<Favorite> result = dal.GetAllFavorites();
+            IEnumerable<JoinedItem> result = dal.AllFavorites(id);
 
             return result;
         }
@@ -53,7 +53,7 @@ namespace HelpDesk.Controllers
         //    //        result
         //    //    }
         //    //}
-        //}
+    //}
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]

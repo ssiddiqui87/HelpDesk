@@ -81,10 +81,10 @@ namespace HelpDesk.Models
         }
 
         // ********************** Favorites ***************************
-        public IEnumerable<Favorite> GetAllFavorites()
+        public IEnumerable<Favorite> GetAllFavorites(int id)
         {
-            string queryString = "SELECT * FROM Favorites";
-            IEnumerable<Favorite> Favorites = conn.Query<Favorite>(queryString);
+            string queryString = "SELECT * FROM Favorites WHERE UserID = @id";
+            IEnumerable<Favorite> Favorites = conn.Query<Favorite>(queryString, new { id = id});
             return Favorites;
         }
 
@@ -108,7 +108,7 @@ namespace HelpDesk.Models
         public IEnumerable<JoinedItem> AllFavorites(int id)
         {
             string command = "SELECT f.TicketID, f.UserID, t.Title FROM ";
-            command += "Favorites f INNER JOIN Tickets t ON f.TicketID = t.TicketID WHERE t.UserID=@id";
+            command += "Favorites f INNER JOIN Tickets t ON f.TicketID = t.TicketID WHERE f.UserID=@id";
 
             IEnumerable<JoinedItem> result = conn.Query<JoinedItem>(command,
                 new { id = id });

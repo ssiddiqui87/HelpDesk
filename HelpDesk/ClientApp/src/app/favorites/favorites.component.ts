@@ -34,7 +34,7 @@ export class FavoritesComponent {
   }
 
   getFavorites() {
-    this.favoriteData.getFavorites().subscribe(
+    this.favoriteData.getFavorites(this.ticketData.userID).subscribe(
       (data: any) => {
         this.favorites = data;        
       },

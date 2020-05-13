@@ -9,8 +9,8 @@ export class FavoriteDataService {
     
    
   }
-  getFavorites() {
-    return this.http.get<JoinedItem[]>('/api/favorites/');
+  getFavorites(id:number) {
+    return this.http.get<JoinedItem[]>('/api/favorites/'+id);
   }
   deleteFavorite(ticketid: number) {
     return this.http.delete('/api/favorites/' + ticketid);

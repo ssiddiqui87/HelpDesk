@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Ticket } from '../interfaces/ticket';
 import { TicketDataService } from '../ticket-data.service';
+import { FavoriteDataService } from '../favorite-data.service';
 
 @Component({
   selector: 'app-tickets',
@@ -12,7 +13,7 @@ export class TicketsComponent {
   tickets: Ticket[];
   ticketSection: boolean[] = [];
 
-  constructor(private ticketService: TicketDataService) { }
+  constructor(private ticketService: TicketDataService, private favoriteService: FavoriteDataService) { }
 
   ngOnInit(): void {
     this.ticketService.getTickets().subscribe(
@@ -35,7 +36,7 @@ export class TicketsComponent {
     this.ticketSection[section] = false;
   }
 
-  addFavorite(id: number) {
+  addFavorite(id: number, title: string) {
     this.ticketService.postFavorite(id).subscribe(
       (data: object) => console.log(data), error => console.error(error));
   }
