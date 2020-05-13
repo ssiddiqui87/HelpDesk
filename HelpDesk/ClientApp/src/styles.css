@@ -52,8 +52,16 @@ h2 {
 }
 
 button{
-    display: flex;
+    display: flex inline-block;
     justify-content: space-between;
-    flex-direction:column;
-    margin: 10px
+    flex-direction:row;
+    margin: 10px;
+    
+}
+
+.buttonSpace {
+  display: inline;
+  justify-content: space-evenly;
+  flex-direction: row;
+  margin: 10px
 }

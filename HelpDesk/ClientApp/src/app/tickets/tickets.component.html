@@ -10,7 +10,11 @@
     <ng-container *ngFor="let t of tickets; index as i">
       <div class="col" [hidden]="ticketSection[i]" id="menuCollapse{{i}}">
         <div class="card card-body">
-          <h3>{{t.title}}</h3>
+          <div >
+            <h4 class="buttonSpace">{{t.title}}</h4>
+            <button class="btn btn-primary buttonSpace" type="button" (click)="postFavorite()">Add to Favorites</button>
+            <button class="btn btn-primary buttonSpace" type="button" (click)="postFavorite()">Edit Ticket</button>
+          </div>
           <app-ticket-detail [myTicket]="t"></app-ticket-detail>
         </div>
       </div>
