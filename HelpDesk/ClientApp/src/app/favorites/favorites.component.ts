@@ -18,6 +18,7 @@ export class FavoritesComponent {
   
   ngOnInit() {
     //replace with name of get from service
+    this.favoriteData.userID = this.ticketData.userID;
     this.getFavorites();
   }
  
