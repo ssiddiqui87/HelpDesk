@@ -1,1 +1,16 @@
-<p>add-ticket works!</p>
+<h2>Submit a new ticket</h2>
+
+<div>
+ 
+    <input type="text" [(ngModel)]="title" placeholder="Ticket Title" />
+    <br />
+    <input type="text" [(ngModel)]="category" placeholder="Category" />
+    <br />
+    <input type="text" [(ngModel)]="details" placeholder="Describe your issue" />
+    <br />
+    <input type="text" [(ngModel)]="openedBy" placeholder="Your name" />
+    <br />
+
+    <button (click)="addTicket()">Submit</button>
+
+</div>

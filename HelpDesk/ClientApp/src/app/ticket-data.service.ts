@@ -4,8 +4,10 @@ import { Ticket } from './interfaces/ticket';
 
 @Injectable()
 export class TicketDataService {
-    constructor(private http: HttpClient) {
-
+  userID: number;
+  constructor(private http: HttpClient) {
+    //this.userID = Math.floor(Math.random() * 1000000) + 1;
+    this.userID = 5;
     }
   getTickets() {
     let result = this.http.get<Ticket[]>('/api/ticket');
@@ -14,6 +16,7 @@ export class TicketDataService {
   }
 
   addNewTicket(t: Ticket) {
+    console.log('submitting ticket' + t.title);
     return this.http.post<Ticket>('/api/ticket', t);
   }
 }
